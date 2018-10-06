@@ -1,0 +1,9 @@
+<FilesMatch "\.(bak|inc|lib|sh|tpl|lbi|dwt|ini|log)$">
+	deny from all
+</FilesMatch>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule !\.(js|ico|txt|gif|jpg|png|css|GIF|JPG|PNG|docx|csv|pdf)$ index.php [NC,L]
